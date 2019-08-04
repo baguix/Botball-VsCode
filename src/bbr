@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ $1 ]; then
+    project_dir="/home/root/Documents/KISS/Default User/"$1/
+    exe_file=$project_dir/bin/botball_user_program
+    if [ -f "$exec_file" ]; then
+    	rm /home/root/Documents/KISS/Default\ User/$1/bin/botball_user_program
+    fi
+    cd /home/root/Documents/KISS/Default\ User/$1/src
+    gcc -lwallaby -I ../include -o ../bin/botball_user_program /home/root/Documents/KISS/Default\ User/$1/src/main.c
+    
+    if [ ! -f "$exec_file" ]; then
+    	cd /home/root/Documents/KISS/Default\ User/$1/bin/
+    	echo -e "Successful, now running, press \033[44m Ctrl+C \033[0m to stop."
+    	./botball_user_program
+    fi
+
+else
+    echo No project name.
+fi

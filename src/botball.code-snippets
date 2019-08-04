@@ -1,0 +1,216 @@
+ {
+        "BotBall": {
+                "prefix": "bb",
+                "body": "#include <kipr/botball.h>\n\nint main()\n{\n\t$1\n\treturn 0;\n}",
+                "description": "BotBall主程序\n\n"
+        },
+        // 电机（Motor）
+        "BotBall Motor": {
+                "prefix": "bb.m.motor",
+                "body": "motor($1, $2);",
+                "description": "恒定功率驱动:\nmotor( 端口[0-4], 功率[0-100] )。\n\n"
+        },
+        "BotBall Mav": {
+                "prefix": "bb.m.mav",
+                "body": "mav($1, $2);",
+                "description": "恒定速度驱动:\nmav( 端口[0-4], 速度[0-1500] )。\n\n"
+        },
+        "BotBall Mrp": {
+                "prefix": "bb.m.mrp",
+                "body": "mrp($1, $2, $3);",
+                "description": "精确驱动:\nmrp( 端口[0-4], 速度[0-1000], 结束距离值 )。\n使用cmpc()清空距离计数器。\n使用gmpc()获取距离计数器。\n\n"
+        },
+        "BotBall Cmpc": {
+                "prefix": "bb.m.cmpc",
+                "body": "cmpc($1);",
+                "description": "清空电机距离计数器:\ncmpc( 端口 );\n\n"
+        },
+        "BotBall Gmpc": {
+                "prefix": "bb.m.gmpc",
+                "body": "gmpc($1);",
+                "description": "获取电机距离计数器:\ngmpc( 端口 )。\n\n"
+        },
+        "BotBall Bmd": {
+                "prefix": "bb.m.bmd",
+                "body": "bmd($1);",
+                "description": "等待电机达到位置:\nbmd( 端口 )。\n\n"
+        },
+        
+        // 舵机（Servo）
+        "BotBall EnableServos": {
+                "prefix": "bb.s.enableServosAll",
+                "body": "enable_servos();$1",
+                "description": "启用所有舵机:\nenable_servos()。\n\n"
+        },
+        "BotBall EnableServo": {
+                "prefix": "bb.s.enableServo",
+                "body": "enable_servo($1);",
+                "description": "启用舵机:\nenable_servo( 端口 )。\n\n"
+        },
+        "BotBall DisableServo": {
+                "prefix": "bb.s.disable",
+                "body": "disable_servos();$1",
+                "description": "禁用所有舵机:\ndisable_servos()。\n\n"
+        },
+        "BotBall GetServoPosition": {
+                "prefix": "bb.s.get_position",
+                "body": "get_servo_position($1, $2);",
+                "description": "获取舵机位置:\nget_servo_position( 端口号, 位置 )。\n\n"
+        },
+        "BotBall SetServoPosition": {
+                "prefix": "bb.s.set_position",
+                "body": "set_servo_position($1, $2);",
+                "description": "设置舵机位置:\nset_servo_position( 端口号, 位置 )。\n\n"
+        },
+        
+        // 传感器（Sensor）
+        "BotBall DigitalSensor": {
+                "prefix": "bb.i.digital",
+                "body": "d$1 = digital($2);",
+                "description": "读取数字传感器值:\ndigital( 端口号 )。\n大/小触碰Small/Large touch。\n微触控Lever touch。\n\n"
+        },
+        "BotBall Analog": {
+                "prefix": "bb.i.analog",
+                "body": "a$1 = analog($2);",
+                "description": "读取模拟传感器值:\nanalog( 端口号 )。\n灰度传感器Top-hat\n红外测距ET\n滑杆Slider。\n\n"
+        },
+        // 摄像头（Camera）
+        "BotBall CameraOpen": {
+                "prefix": "bb.cam.camera_open",
+                "body": "camera_open();$1",
+                "description": "打开白色摄像头:\ncamera_open();\n\n"
+        },
+        "BotBall CameraOpenBlack": {
+                "prefix": "bb.cam.camera_open_black",
+                "body": "camera_open_black();$1",
+                "description": "打开黑色摄像头:\ncamera_open_black();\n\n"
+        },
+        "BotBall CameraClose": {
+                "prefix": "bb.cam.camera_close",
+                "body": "camera_close();$1",
+                "description": "关闭摄像头:\ncamera_close();\n\n"
+        },
+        "BotBall CameraUpdate": {
+                "prefix": "bb.cam.camera_update",
+                "body": "camera_update();$1",
+                "description": "刷新摄像头:\ncamera_update()。\n\n"
+        },
+        "BotBall GetObjectArea": {
+                "prefix": "bb.cam.get_object_area",
+                "body": "get_object_area($1, $2);",
+                "description": "获取摄像头对象区域:\nget_object_area(X,Y)。\n\n"
+        },
+        "BotBall GetObjectCounterX": {
+                "prefix": "bb.cam.get_object_counter_x",
+                "body": "get_object_counter_x($1, $2);",
+                "description": "获取摄像头对象区域:\nget_object_counter_x( 通道号, 物品号 )。\n\n"
+        },
+        "BotBall GetObjectCounterY": {
+                "prefix": "bb.cam.get_object_counter_y",
+                "body": "get_object_counter_y($1, $2);",
+                "description": "获取指定色彩通道上的物体所在的y轴坐标:\nget_object_counter_y( 通道号, 物品号 )。\n\n"
+        },
+        "BotBall GetObjectCount": {
+                "prefix": "bb.cam.get_object_count",
+                "body": "get_object_count($1, $2);",
+                "description": "获取指定色彩通道上的物体数量:\nget_object_count( 通道号, 物品号 )。\n\n"
+        },
+        
+        // 扫地机器人（Create）
+        "BotBall CreateConnect": {
+                "prefix": "bb.c.create_connect",
+                "body": "create_connect();$1",
+                "description": "建立Create连接:\ncreate_connect();\n\n"
+        },
+        "BotBall CreateDisonnect": {
+                "prefix": "bb.c.create_disconnect",
+                "body": "create_disconnect();$1",
+                "description": "断开Create连接:\ncreate_disconnect();\n\n"
+        },
+        "BotBall SetCreateDrive": {
+                "prefix": "bb.c.create_drive",
+                "body": "create_drive($1, $2);",
+                "description": "以指定速度转弯，速度范围是20~500mm/s，半径单位是毫米:\ncreate_drive(500, 100)。\n\n"
+        },
+        "BotBall SetCreateDrive": {
+                "prefix": "bb.c.create_drive",
+                "body": "create_drive($1, $2);",
+                "description": "以指定速度转弯，速度范围是20~500mm/s，半径单位是毫米:\ncreate_drive(500, 100)。\n\n"
+        },
+        "BotBall SetCreateDistance": {
+                "prefix": "bb.c.set_create_distance",
+                "body": "set_create_distance();$1",
+                "description": "将距离值初始化到指定值，单位为毫米:\nset_create_distance( );\n\n"
+        },
+        "BotBall GetCreateDistance": {
+                "prefix": "bb.c.get_create_distance",
+                "body": "get_create_distance()$1",
+                "description": "从上一次初始化距离值开始计算，返回之后Create行驶的总距离值:\nget_create_distance( );\n\n"
+        },
+        "BotBall SetCreateTotalAngle": {
+                "prefix": "bb.c.set_create_total_angle",
+                "body": "set_create_total_angle(0$1);",
+                "description": "将角度值初始化到指定值，单位为度:\nset_create_total_angle( 角度 )。\n\n"
+        },
+        "BotBall GetCreateTotalAngle": {
+                "prefix": "bb.c.get_create_total_angle",
+                "body": "get_create_total_angle()$1",
+                "description": "从后一次角度值的初始化开始计算，返回Create转过的总角度值 :\nget_create_total_angle()。\n\n"
+        },
+        "BotBall CreateDriveDirect": {
+                "prefix": "bb.c.create_drive_direct",
+                "body": "create_drive_direct($1, $2);",
+                "description": "控制Create运动:\ncreate_drive_direct( 左速度, 右速度 );\n\n"
+        },
+        "BotBall CreateStop": {
+                "prefix": "bb.c.create_stop",
+                "body": "create_stop();$1",
+                "description": "Create停止:\ncreate_stop()。\n\n"
+        },
+        // 比赛用的函数
+        "BotBall Msleep": {
+                "prefix": "bb.msleep",
+                "body": "msleep($1);",
+                "description": "等待:\nmsleep( 毫秒 );\n\n"
+        },
+        "BotBall Printf": {
+                "prefix": "bb.printf",
+                "body": "printf(\"$1%d\n\", $1);",
+                "description": "屏幕打印:\nprintf( \"文字内容%d\\n\", 变量名);\n\n"
+        },
+        "BotBall WaitForLight": {
+                "prefix": "bb.wait_for_light",
+                "body": "wait_for_light($1);",
+                "description": "等待开灯:\nwait_for_light( 端口号 );\n\n"
+        },
+        "BotBall ShutDownIn": {
+                "prefix": "bb.shut_down_in",
+                "body": "shut_down_in($1);",
+                "description": "关机:\nshut_down_in( 秒数 );\n\n"
+        },
+        "BotBall Ao": {
+                "prefix": "bb.ao",
+                "body": "ao();",
+                "description": "关闭所有接口的电机（All Off）:\nao();\n\n"
+        },
+        "for": {
+                "prefix": "for",
+                "body": "int i=0;\nfor(i=0; i<5; i++)\n{\n\t$1\n}",
+                "description": "for循环语句。\n\n"
+        },
+        "if": {
+                "prefix": "if",
+                "body": "if(a>0$1)\n{\n\t$2\n}",
+                "description": "if语句。\n\n"
+        },
+        "ifelse": {
+                "prefix": "ifelse",
+                "body": "if(a>0$1)\n{\n\t$2\n}\nelse\n{\n\t\n}",
+                "description": "if语句。\n\n"
+        },
+        "while": {
+                "prefix": "while",
+                "body": "i=0;\nwhile(i<5)\n{\n\t$1\n\ti++;\n}",
+                "description": "while语句。\n\n"
+        }
+}

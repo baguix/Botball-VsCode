@@ -1,0 +1,25 @@
+#!/bin/bash
+if [ $1 ]; then
+    project_dir="/home/root/Documents/KISS/Default User/"$1/
+    export project_dir
+    if [ ! -d "$project_dir" ]; then
+    	echo "create project"
+    	cd /home/root/Documents/KISS/Default\ User
+    	cp -R /home/root/template/ $1
+    	cd /home/root/Documents/KISS/Default\ User/$1/
+    else
+    	cd /home/root/Documents/KISS/Default\ User/$1/
+    fi
+    if [ $2 ]; then
+		if [ ! -f include/$2.c ]; then
+			touch  include/$2.c
+			rmate -p 52698 include/$2.c
+		else
+			rmate -p 52698 include/$2.c
+		fi
+    else
+		rmate -p 52698 src/main.c
+    fi
+else
+    echo No project name.
+fi

@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -l /home/root/Documents/KISS/Default\ User/ |awk '/^d/ {print $NF}'
